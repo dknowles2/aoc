@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 
+"""Initially written on an iPad in Antigua :-)"""
+
 with open("input/" + __file__.replace(".py", ".txt")) as f:
     input1 = f.readlines()
 
