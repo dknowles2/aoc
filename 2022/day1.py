@@ -1,6 +1,8 @@
-from collections import defaultdict as dd
+#!/usr/bin/python3
 
-elves = dd(int)
+from collections import defaultdict
+
+elves = defaultdict(int)
 
 with open("input/day1.txt") as data:
     e = 0
@@ -9,8 +11,7 @@ with open("input/day1.txt") as data:
         if l == "":
             e += 1
             continue
-        elves[e] += int(l.strip())
+        elves[e] += int(l)
 
 print(max(elves.values()))
-
-print(sum(sorted(elves.values() , reverse=True)[0:3]))
+print(sum(sorted(elves.values(), reverse=True)[0:3]))
