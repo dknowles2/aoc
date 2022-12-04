@@ -4,9 +4,9 @@ import string
 
 
 def read_input():
-    from os.path import basename
-    with open("input/" + basename(__file__).replace(".py", ".txt")) as f:
-        return f.readlines()
+    from pathlib import Path
+    me = Path(__file__)
+    return Path(me.parent / "input" / (me.stem + ".txt")).read_text().splitlines()
 
 
 def priority(c):
