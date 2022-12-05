@@ -5,6 +5,7 @@ import string
 
 def read_input():
     from pathlib import Path
+
     me = Path(__file__)
     return Path(me.parent / "input" / (me.stem + ".txt")).read_text().splitlines()
 
@@ -17,9 +18,9 @@ def one():
     res = 0
     for l in read_input():
         l = l.strip()
-        m = int(len(l)/2)
+        m = int(len(l) / 2)
         a, b = set(l[:m]), set(l[m:])
-        res += priority(list(a&b)[0])
+        res += priority(list(a & b)[0])
     print(res)
 
 

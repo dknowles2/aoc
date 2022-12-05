@@ -1,7 +1,9 @@
 #!/usr/bin/python3
 
+
 def read_input():
     from pathlib import Path
+
     me = Path(__file__)
     return Path(me.parent / "input" / (me.stem + ".txt")).read_text().splitlines()
 
