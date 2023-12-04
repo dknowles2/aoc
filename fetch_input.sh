@@ -13,6 +13,8 @@ if [[ -z "$1" || -z "$2" ]]; then
     exit 1
 fi
 
+mkdir -p ${1}/input
+
 curl "https://adventofcode.com/$1/day/$2/input" \
   -H 'authority: adventofcode.com' \
   -H 'cache-control: max-age=0' \
