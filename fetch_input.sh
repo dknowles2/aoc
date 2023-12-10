@@ -24,4 +24,4 @@ curl "https://adventofcode.com/$1/day/$2/input" \
   -H 'accept-language: en-US,en;q=0.9' \
   -H "cookie: session=$(cat ${session})" \
   -s \
-  --compressed > ${1}/input/day${2}.txt
+  --compressed > ${1}/input/day$(printf %02d $2).txt
