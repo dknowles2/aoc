@@ -1,10 +1,6 @@
 from collections import namedtuple
-from pathlib import Path
 
-
-def get_input(me=Path(__file__)):
-    return Path(f"{me.parent}/input/{me.stem}.txt").read_text().splitlines()
-
+from util import check, get_input
 
 DEBUG = False
 
@@ -143,10 +139,6 @@ def two(input_fn=get_input):
     if DEBUG:
         print_tiles(tiles, path, enclosed)
     return len(enclosed)
-
-
-def check(a, b):
-    assert a == b, f"{a} != {b}"
 
 
 check(one(example1), 4)

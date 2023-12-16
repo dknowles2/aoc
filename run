@@ -1,0 +1,11 @@
+#!/usr/bin/python3
+
+from importlib import import_module
+import sys
+
+_, year, day = sys.argv
+try:
+    import_module(f"{year}.day{day.zfill(2)}", ".")
+except ModuleNotFoundError:
+    print(f"Puzzle not found: {year} {day}", file=sys.stderr)
+    sys.exit(1)

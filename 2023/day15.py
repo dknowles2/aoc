@@ -2,9 +2,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 import re
 
-
-def get_input(me=Path(__file__)):
-    return Path(f"{me.parent}/input/{me.stem}.txt").read_text().splitlines()
+from util import check, get_input
 
 
 example = """\
@@ -55,10 +53,6 @@ def do_hash(s, i=0):
     for c in s:
         i = (17 * (i + ord(c))) % 256
     return i
-
-
-def check(a, b):
-    assert a == b, f"{a} != {b}"
 
 
 check(do_hash("HASH"), 52)

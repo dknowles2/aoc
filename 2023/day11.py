@@ -1,11 +1,7 @@
 from collections import namedtuple
 from itertools import combinations
-from pathlib import Path
 
-
-def get_input(me=Path(__file__)):
-    return Path(f"{me.parent}/input/{me.stem}.txt").read_text().splitlines()
-
+from util import check, get_input
 
 example = """\
 ...#......
@@ -70,10 +66,6 @@ def dist(input_fn=get_input, expansion=2):
         y_dist = abs(a.y - b.y)
         ret += x_dist + y_dist
     return ret
-
-
-def check(a, b):
-    assert a == b, f"{a} != {b}"
 
 
 check(dist(example), 374)

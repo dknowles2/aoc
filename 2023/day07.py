@@ -1,10 +1,6 @@
 from collections import Counter
-from pathlib import Path
 
-
-def get_input(me=Path(__file__)):
-    return Path(f"{me.parent}/input/{me.stem}.txt").read_text().splitlines()
-
+from util import get_input
 
 example = """\
 32T3K 765

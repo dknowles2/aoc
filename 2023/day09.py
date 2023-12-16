@@ -1,9 +1,6 @@
 from itertools import pairwise
-from pathlib import Path
 
-
-def get_input(me=Path(__file__)):
-    return Path(f"{me.parent}/input/{me.stem}.txt").read_text().splitlines()
+from util import check, get_input
 
 
 example1 = """\
@@ -53,10 +50,6 @@ def two(input_fn=get_input):
         ret += prev
 
     return ret
-
-
-def check(a, b):
-    assert a == b, f"{a} != {b}"
 
 
 check(one(example1), 114)

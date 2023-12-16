@@ -1,9 +1,6 @@
 from dataclasses import dataclass
-from pathlib import Path
 
-
-def get_input(me=Path(__file__)):
-    return Path(f"{me.parent}/input/{me.stem}.txt").read_text().splitlines()
+from util import get_input
 
 
 example = """\

@@ -1,11 +1,8 @@
 from itertools import cycle
 from math import lcm
-from pathlib import Path
 import re
 
-
-def get_input(me=Path(__file__)):
-    return Path(f"{me.parent}/input/{me.stem}.txt").read_text().splitlines()
+from util import check, get_input
 
 
 example1 = """\
@@ -86,8 +83,8 @@ def two(input_fn=get_input):
     return ret
 
 
-assert one(example1) == 2
-assert one(example2) == 6
+check(one(example1), 2)
+check(one(example2), 6)
 print(one())
-assert two(example3) == 6
+check(two(example3), 6)
 print(two())

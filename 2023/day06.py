@@ -1,9 +1,4 @@
-from pathlib import Path
-
-
-def get_input(me=Path(__file__)):
-    return Path(f"{me.parent}/input/{me.stem}.txt").read_text().splitlines()
-
+from util import check, get_input
 
 example1 = """\
 Time:      7  15   30
@@ -34,10 +29,6 @@ def two(input_fn=get_input):
     time = int("".join(lines[0].split(":")[1].split()))
     best = int("".join(lines[1].split(":")[1].split()))
     return count_better(time, best)
-
-
-def check(a, b):
-    assert a == b, f"{a} != {b}"
 
 
 check(one(example1), 288)
