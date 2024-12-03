@@ -13,14 +13,14 @@ def example():
 1   3
 3   9
 3   3
-""".splitlines()
+"""
 
 
 @solution(11, 1941353)
 def one(puzzle_input):
     left: list[int] = []
     right: list[int] = []
-    for line in puzzle_input:
+    for line in puzzle_input.splitlines():
         l, r = line.split()
         heappush(left, int(l))
         heappush(right, int(r))
@@ -34,7 +34,7 @@ def one(puzzle_input):
 def two(puzzle_input):
     left: list[str] = []
     right: dict[str, int] = {}
-    for line in puzzle_input:
+    for line in puzzle_input.splitlines():
         l, r = line.split()
         left.append(l)
         if r not in right:

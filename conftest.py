@@ -26,5 +26,5 @@ def puzzle_input(request: FixtureRequest, example_wrapper: Any):
     elif "puzzle" in request.keywords:
         me = Path(request.path)
         input_file = Path(me.parent / "input" / f"{me.stem.replace('test_', '')}.txt")
-        return input_file.read_text().splitlines()
+        return input_file.read_text()
     request.raiseerror("unknown puzzle")
