@@ -1,15 +1,13 @@
 import pytest
 
 
-def solution(want_example, want_puzzle=None):
+def solution(want_example, want_puzzle=None, run_puzzle=True):
     def decorator(fn):
-        @pytest.mark.parametrize(
-            "want",
-            [
-                pytest.param(want_example, id="example"),
-                pytest.param(want_puzzle, id="puzzle"),
-            ],
-        )
+        params = [pytest.param(want_example, id="example")]
+        if run_puzzle:
+            params.append(pytest.param(want_puzzle, id="puzzle"))
+
+        @pytest.mark.parametrize("want", params)
         def wrapper(puzzle_input, want):
             got = fn(puzzle_input)
             if want is None:
