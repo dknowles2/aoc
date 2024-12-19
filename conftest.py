@@ -3,6 +3,8 @@ from typing import Any
 
 from pytest import FixtureLookupError, FixtureRequest, fixture
 
+from . import get_input
+
 
 @fixture
 def example_wrapper(request: FixtureRequest):
@@ -24,7 +26,5 @@ def puzzle_input(request: FixtureRequest, example_wrapper: Any):
     if "example" in request.keywords:
         return example_wrapper
     elif "puzzle" in request.keywords:
-        me = Path(request.path)
-        input_file = Path(me.parent / "input" / f"{me.stem.replace('test_', '')}.txt")
-        return input_file.read_text()
+        return get_input(Path(request.path))
     request.raiseerror("unknown puzzle")

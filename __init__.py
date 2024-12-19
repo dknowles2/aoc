@@ -1,4 +1,13 @@
+from inspect import currentframe
+from pathlib import Path
+
 import pytest
+
+
+def get_input(me=None):
+    if me is None:
+        me = Path(currentframe().f_back.f_code.co_filename)
+    return Path(me.parent / "input" / f"{me.stem}.txt").read_text()
 
 
 def solution(want_example, want_puzzle=None, run_puzzle=True):
